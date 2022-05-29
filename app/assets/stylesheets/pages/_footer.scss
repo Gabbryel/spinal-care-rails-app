@@ -1,3 +1,11 @@
 footer {
   height: calc(var(--vh) * 11);
 }
+
+.nav {
+  li a {
+    &:hover {
+      color: $blue-spinal !important;
+    }
+  }
+}

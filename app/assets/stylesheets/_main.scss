@@ -1,0 +1,13 @@
+* {
+	box-sizing: border-box;
+	scrollbar-width: none;
+	word-wrap: break-word;
+}
+// chrome scroll-bar
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.app-main {
+  min-height: calc(var(--vh) * 80 );
+}

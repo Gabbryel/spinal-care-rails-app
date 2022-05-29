@@ -64,6 +64,11 @@
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: calc(var(--vh) * 92);
+  overflow: hidden;
+  img {
+    object-fit: cover;
+    max-height: 100%;
+  }
 }
 
 
