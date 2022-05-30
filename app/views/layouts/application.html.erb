@@ -13,11 +13,11 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <%= dashboard_routing_helper ? (render 'shared/navbar_admins') : (render 'shared/navbar')  %>
+    <%= render 'shared/flashes'%>
       <div class="app-main">
         <%= yield %>
       </div>
-    <%= render 'shared/footer' %>
+    <%= render 'shared/footer' unless dashboard_routing_helper %>
   </body>
 </html>

@@ -16,22 +16,21 @@
         <li class="nav-item">
           <%= link_to "Specialități", "#", class: "nav-link" %>
         </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Admin", admin_path, class: "nav-link" %>
+          </li>
+        <% end %>
         <li class="nav-item dropdown">
-          <%= image_tag('logo_sm.png', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">Info</a>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Centre Spinal Care", "#", class: "dropdown-item" %>
+            <%= link_to "Tehnică medicală", "#", class: "dropdown-item" %>
+            <%= link_to "Blog", "#", class: "dropdown-item" %>
             <%= link_to "Pacienți", "#", class: "dropdown-item" %>
             <%= link_to "Legea 46/2003", "#", class: "dropdown-item" %>
             <%= link_to "Despre Spinal Care", "#", class: "dropdown-item" %>
-            <% if user_signed_in? %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
       </ul>
     </div>
   </div>
