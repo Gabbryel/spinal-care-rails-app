@@ -1,0 +1,13 @@
+.user-container {
+  span {
+    display: flex;
+  }
+  .simple_form {
+    position: relative;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 20px;
+  }
+}

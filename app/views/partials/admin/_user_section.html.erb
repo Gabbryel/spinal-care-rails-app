@@ -1,15 +1,30 @@
 <div class="user-container">
   <p>Administrare useri</p>
-  <% users.each do |u| %>
-    <span>email: <%= u.email %> | este admin? <%= u.admin ? 'da' : 'nu' %> | este super-admin? <%= u.super_admin ? 'da' : 'nu' %>
-    <%= simple_form_for u do |f| %>
-      <% if current_user.super_admin %>
-        <%= f.input :admin, value: !u.admin %>
-        <%= f.input :super_admin, value: !u.super_admin %>
-        <button><i class="fas fa-edit"></i></button>
+  <%= super_admins %>
+  <table style="width: 100%">
+    <tr>
+      <th>email</th>
+      <th>admin?</th>
+      <th>super_admin?</th>
+      <th>set admin</th>
+      <th>set super_admin</th>
+      <th>acțiune</th>
+      <th>șterge</th>
+    </tr>
+    <% users.each do |u| %>
+    <tr>
+      <td><%= u.email %></td>
+      <td class="text-center"><%= u.admin ? 'da' : 'nu' %></td>
+      <td class="text-center"><%= u.super_admin ? 'da' : 'nu' %></td>
+      <%= simple_form_for u do |f| %>
+        <% if current_user.super_admin %>
+          <td><%= f.input :admin, value: !u.admin %></td>
+          <td><%= f.input :super_admin, value: !u.super_admin %></td>
+          <td><%= f.submit 'Actualizează', class: "btn btn-sm btn-primary #{super_admins && u.super_admin ? 'disabled' : nil}" %></td>
+        <% end %>
       <% end %>
+      <td><%= link_to 'Șterge', user_path(u), class: "btn btn-sm btn-primary #{super_admins && u.super_admin ? 'disabled' : nil} ", method: :delete  %></td>
+    </tr>
     <% end %>
-    </span>
-    <hr>
-  <% end %>
+  </table>
 </div>

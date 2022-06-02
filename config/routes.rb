@@ -1,14 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'sessions/sessions'}
   resources :users, except: [:new]
-  
-  get 'carousel_cards/new'
-  get 'carousel_cards/create'
-  get 'carousel_cards/show'
-  get 'carousel_cards/edit'
-  get 'carousel_cards/update'
-  get 'carousel_cards/index'
-  get 'carousel_cards/destroy'
+  resources :carousel_cards
 
   get 'admin', to: 'admin#general'
   get 'team-members', to: 'admin#team_members'

@@ -8,6 +8,10 @@
 t1 = Time.now()
 puts 'Hello there'
 puts 'Lets destroy everything first'
+puts 'Creating users...'
+10.times do
+  User.create(email: Faker::Internet.email, password: Faker::Internet.password)
+end
 
 
 
