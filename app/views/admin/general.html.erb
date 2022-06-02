@@ -1,1 +1,10 @@
-<h1>General editing</h1>
+<div class="container-fluid px-5 py-5">
+  <% if current_user.admin %>
+    <%= render 'partials/admin/user_section', users: @users %>
+    <hr style="height: 4px;" class="my-5">
+    <%= render 'partials/admin/home_page_section' %>
+    <hr style="height: 4px;" class="my-5">
+  <% else %>
+  <%= render 'partials/admin/not_allowed' %>
+  <% end %>
+</div>

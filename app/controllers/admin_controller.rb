@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   def general
+    @users = User.all.order(admin: :desc)
   end
 
   def team_members

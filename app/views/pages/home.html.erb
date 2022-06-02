@@ -1,95 +1,36 @@
 <main>
 
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= cl_image_tag("0236_cu8xqs.jpg", class: 'bd-placeholder-img', :gravity=>"faces", :width=>'100%', :height=>'100%') %>
-
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>conf. univ. dr. Daniel Lucian Dobreci</h1>
-            <p>Fondator Spinal Care</p>
-            <p><a class="btn btn-lg btn-success" href="#">Despre Spinal Care</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <%= cl_image_tag("088_flnx8t.png", class: 'bd-placeholder-img', :gravity=>"faces", :width=>'100%', :height=>'100%') %>
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Echipa noastră</h1>
-            <p>Membrii echipei Spinal Care sunt instruiți permanent</p>
-            <p><a class="btn btn-lg btn-success" href="#">Vezi echipa</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <%= cl_image_tag("0187_d9kewo.png", :gravity=>"center", :width=>'100%', :height=>'100%')%>
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Echipamente pentru recuperare</h1>
-            <p>Spinal Care beneficiază de echipamente de recuperare de ultimă generație</p>
-            <p><a class="btn btn-lg btn-success" href="#">Mai multe informații...</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <%= cl_image_tag("0171_r2ifrz.jpg", :gravity=>"center", :width=>'100%', :height=>'100%') %>
-
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>Tehnică medicală.</h1>
-            <p>Eficiență, precizie prin tehnică medicală performantă.</p>
-            <p><a class="btn btn-lg btn-success" href="#">Mai multe informații...</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button> -->
-  </div>
-
-
+  <%= render 'partials/homepage/carousel' %>
 
   <div class="container marketing">
     <div class="container px-4 py-5" id="custom-cards">
-  
       <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
         <div class="col">
           <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg">
+            <div class="card-image">
+              <%= cl_image_tag("088_flnx8t.png", class: 'bd-placeholder-img', :gravity=>"faces", :width=>'100%', :height=>'100%') %>
+            </div>
             <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-center">Specialități medicale</h2>
-              <%= cl_image_tag('0171_r2ifrz.jpg', :gravity=>"center", :width=>'100%', :height=>'100%', class: 'card-image') %>
+              <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Specialități</h2>
               <ul class="d-flex list-unstyled mt-auto">
                 <li class="me-auto">
-                  <%= image_tag('logo_sm.png', width: 50, height: 50, class: 'rounded-circle') %>
+                  <%= logo_icon_card('logo_sm.png') %>
                 </li>
-                
               </ul>
             </div>
           </div>
         </div>
   
         <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" >
+            <div class="card-image">
+              <%= cl_image_tag("088_flnx8t.png", class: 'bd-placeholder-img', :gravity=>"faces", :width=>'100%', :height=>'100%') %>
+            </div>
             <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Much longer title that wraps to multiple lines</h2>
+              <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Echipa</h2>
               <ul class="d-flex list-unstyled mt-auto">
                 <li class="me-auto">
-                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                  <%= logo_icon_card('logo_sm.png') %>
                 </li>
                 <li class="d-flex align-items-center me-3">
                   <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
@@ -105,12 +46,15 @@
         </div>
   
         <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+          <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-4 shadow-lg" style="background-image: asset-url('08.jpg');">
+            <div class="card-image">
+              <%= cl_image_tag("088_flnx8t.png", class: 'bd-placeholder-img', :gravity=>"faces", :width=>'100%', :height=>'100%') %>
+            </div>
             <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-              <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Another longer title belongs here</h2>
+              <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Tehnică medicală</h2>
               <ul class="d-flex list-unstyled mt-auto">
                 <li class="me-auto">
-                  <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+                  <%= logo_icon_card('logo_sm.png') %>
                 </li>
                 <li class="d-flex align-items-center me-3">
                   <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>

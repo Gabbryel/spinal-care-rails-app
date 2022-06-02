@@ -8,14 +8,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <script src="https://kit.fontawesome.com/902125adb8.js" crossorigin="anonymous"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
-    <%= dashboard_routing_helper ? (render 'shared/navbar_admins') : (render 'shared/navbar')  %>
+    <%= dashboard_routing_helper ? nil : (render 'shared/navbar')  %>
     <%= render 'shared/flashes'%>
-      <div class="app-main">
+      <div class="<%= dashboard_routing_helper ? 'app-main-admin' : 'app-main' %>">
+      <%= render 'shared/sidebar_admins' if dashboard_routing_helper %>
         <%= yield %>
       </div>
     <%= render 'shared/footer' unless dashboard_routing_helper %>
