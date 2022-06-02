@@ -1,5 +1,6 @@
 footer {
-  height: calc(var(--vh) * 11);
+  min-height: calc(var(--vh) * 11);
+  background: $white-spinal;
 }
 
 .nav {

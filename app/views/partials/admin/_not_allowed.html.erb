@@ -1,0 +1,8 @@
+<div class="not-allowed">
+  <h1 class="mb-5">Secțiune doar pentru admin!</h1>
+  <%= link_to 'Spinal Care', root_path, class: 'btn btn-sm btn-primary text-white border border-success' %>
+  <hr class="my-5" style="width: 80%;">
+  <p>Utilizator nou?</p>
+  <p>Așteaptă aprobarea unui administrator.</p>
+  <%= link_to 'Ieși din cont', destroy_user_session_path, class: 'btn btn-sm btn-primary text-white border border-success', method: :delete %>
+</div>
