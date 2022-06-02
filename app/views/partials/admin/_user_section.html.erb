@@ -3,7 +3,7 @@
   <% users.each do |u| %>
     <span>email: <%= u.email %> | este admin? <%= u.admin ? 'da' : 'nu' %> | este super-admin? <%= u.super_admin ? 'da' : 'nu' %>
     <%= simple_form_for u do |f| %>
-      <% if policy(User).update? %>
+      <% if current_user.super_admin %>
         <%= f.input :admin, value: !u.admin %>
         <%= f.input :super_admin, value: !u.super_admin %>
         <button><i class="fas fa-edit"></i></button>
