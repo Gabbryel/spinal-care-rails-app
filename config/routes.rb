@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :users, except: [:new]
+  
   get 'carousel_cards/new'
   get 'carousel_cards/create'
   get 'carousel_cards/show'
@@ -12,7 +14,6 @@ Rails.application.routes.draw do
   get 'team-members', to: 'admin#team_members'
   get 'medical-appliances', to: 'admin#medical_appliances'
 
-  devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
