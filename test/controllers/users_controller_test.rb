@@ -1,28 +1,36 @@
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+
+  include Devise::Test::IntegrationHelpers
+
   test "should get show" do
-    get users_show_url
+    sign_in users(:gab)
+    get user_url(1)
     assert_response :success
   end
 
   test "should get index" do
-    get users_index_url
+    sign_in users(:gab)
+    get user_url(1)
     assert_response :success
   end
 
   test "should get edit" do
-    get users_edit_url
+    sign_in users(:gab)
+    get user_url(1)
     assert_response :success
   end
 
   test "should get update" do
-    get users_update_url
+    sign_in users(:gab)
+    get user_url(1)
     assert_response :success
   end
 
   test "should get destroy" do
-    get users_destroy_url
+    sign_in users(:gab)
+    get user_url(1)
     assert_response :success
   end
 end

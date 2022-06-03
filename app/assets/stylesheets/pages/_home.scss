@@ -51,13 +51,16 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.carousel-indicators {
+  top: calc(var(--vh) * 80);
+}
 
 .carousel {
   margin-bottom: 4rem;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  bottom: 3rem;
+  bottom: 10rem;
   z-index: 10;
 }
 
@@ -96,12 +99,12 @@
   box-shadow: none;
   padding: 60px 20px;
   background-color: #fffeee;
-  // background-color: $blue-spinal;
   &:hover {
     box-shadow: .5px .5px 15px #11111110;
   }
   img {
     object-fit: cover;
+    border-radius: 10px;
   }
   @media(min-width: 576px) {
     position: relative;
@@ -189,13 +192,26 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: .3;
+  opacity: .7;
   img {
     object-fit: cover;
   }
+}
+
+.card {
+  border: none;
 }
 
 .logo-img {
   width: calc(var(--vh) * 5);
 }
 
+#custom-cards {
+  position: relative;
+  top: calc(var(--vh) * (-25));
+}
+
+.custom-featurettes {
+  position: relative;
+  top: calc(var(--vh) * (-30));
+}

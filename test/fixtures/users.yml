@@ -1,0 +1,6 @@
+gab:
+  id: '1'
+  email: "gab@spinal.com"
+  encrypted_password: '123123'
+  admin: true
+  super_admin: true

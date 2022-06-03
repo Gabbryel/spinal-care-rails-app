@@ -5,4 +5,8 @@ module ApplicationHelper
   def logo_icon_card(photo)
     image_tag(photo, class: 'rounded-circle logo-img')
   end
+
+  def super_admins
+    User.where(super_admin: true).count <= 1
+  end
 end
