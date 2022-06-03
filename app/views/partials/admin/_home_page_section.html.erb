@@ -1,1 +1,36 @@
-<p>Administrare home page</p>
+<h3>Administrare home page</h3>
+<hr>
+<h4>Secțiunea pentru mini carduri</h4>
+<table style="width: 20%;">
+  <tr>
+    <th>Imagine</th>
+    <th>Acțiune</th>
+  </tr>
+  <tr>
+    <%= simple_form_for(@mini_card) do |f| %>
+    <td><%= f.input :photo, as: :file %></td>
+    <td><%= f.submit 'Card nou', class: @mini_cards.count >= 3 ? "disabled" : nil %></td>
+  </tr>
+</table>
+<% end %>
+<hr>
+<div class="mini-cards_index">
+  <table style="width: 50%";>
+    <tr>
+      <th>Card id</th>
+      <th>Card foto</th>
+      <th>Foto nouă</th>
+      <th>Acțiune</th>
+    </tr>
+    <% @mini_cards.each do |mc| %>
+    <tr>
+        <td><%= mc.id %></td>
+        <td><%= cl_image_tag(mc.photo.key, height: 70, width: 70, crop: :fill) %></td>
+        <%= simple_form_for(mc) do |f| %>
+          <td><%= f.input :photo, as: :file %></td>
+          <td><%= f.submit 'Update' %></td>
+        <% end %>
+      </tr>
+      <% end %>
+  </table>
+</div>
