@@ -1,11 +1,8 @@
 <div class="user-container">
-  <p>Administrare useri</p>
-  <%= super_admins %>
+  <h3>Administrare useri</h3>
   <table style="width: 100%">
     <tr>
       <th>email</th>
-      <th>admin?</th>
-      <th>super_admin?</th>
       <th>set admin</th>
       <th>set super_admin</th>
       <th>acțiune</th>
@@ -14,12 +11,10 @@
     <% users.each do |u| %>
     <tr>
       <td><%= u.email %></td>
-      <td class="text-center"><%= u.admin ? 'da' : 'nu' %></td>
-      <td class="text-center"><%= u.super_admin ? 'da' : 'nu' %></td>
       <%= simple_form_for u do |f| %>
         <% if current_user.super_admin %>
-          <td><%= f.input :admin, value: !u.admin %></td>
-          <td><%= f.input :super_admin, value: !u.super_admin %></td>
+          <td><%= f.input :admin, label: 'admin', value: !u.admin %></td>
+          <td><%= f.input :super_admin, label: 'superadmin', value: !u.super_admin %></td>
           <td><%= f.submit 'Actualizează', class: "btn btn-sm btn-primary #{super_admins && u.super_admin ? 'disabled' : nil}" %></td>
         <% end %>
       <% end %>

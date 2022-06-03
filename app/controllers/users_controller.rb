@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
+
   before_action :set_user, only: [:edit, :update, :destroy]
+
   def show
-    @user = Authorize User.find(params[:id])
+    @user = authorize User.find(params[:id])
   end
 
   def index
+    @users = policy_scope(User)
   end
 
   def edit

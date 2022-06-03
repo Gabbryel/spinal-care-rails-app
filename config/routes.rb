@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {sessions: 'sessions/sessions'}
+  devise_for :users, controllers: { sessions: 'users/sessions'}
   resources :users, except: [:new]
   resources :carousel_cards
 
