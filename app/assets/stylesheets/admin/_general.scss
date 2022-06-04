@@ -1,6 +1,11 @@
+.admin-page {
+  font-family: $body-font;
+}
+
 .user-container {
   span {
     display: flex;
+    font-family: $body-font;
   }
   .simple_form {
     position: relative;
@@ -10,4 +15,23 @@
     align-items: center;
     gap: 0 20px;
   }
+}
+
+.upload-photo {
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+th, td {
+  border: 1px solid #00000007;
+  text-align: center;
+}
+
+h5 {
+  margin: 40px 0;
+}
+
+h3 {
+  text-align: center;
 }

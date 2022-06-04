@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'medical-appliances', to: 'admin#medical_appliances'
 
   root to: 'pages#home'
+  get 'despre-noi', to: 'pages#about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
