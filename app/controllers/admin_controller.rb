@@ -3,6 +3,8 @@ class AdminController < ApplicationController
     @users = User.all.order(admin: :desc)
     @mini_card = MiniCard.new
     @mini_cards = MiniCard.all.order(id: :asc)
+    @carousel_card = CarouselCard.new
+    @carousel_cards = CarouselCard.all
   end
 
   def team_members
