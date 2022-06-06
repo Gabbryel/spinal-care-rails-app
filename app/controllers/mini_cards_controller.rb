@@ -21,9 +21,11 @@ class MiniCardsController < ApplicationController
   end
 
   def show
+    @mini_card = authorize MiniCard.find(params[:id])
   end
 
   def index
+    @mini_cards = policy.scope(MiniCard)
   end
 
   def destroy
@@ -33,6 +35,6 @@ class MiniCardsController < ApplicationController
   private
 
   def mini_card_params
-    params.require(:mini_card).permit(:photo)
+    params.require(:mini_card).permit(:photo, :text)
   end
 end

@@ -5,6 +5,8 @@ class AdminController < ApplicationController
     @mini_cards = MiniCard.all.order(id: :asc)
     @carousel_card = CarouselCard.new
     @carousel_cards = CarouselCard.all
+    @featurette = Featurette.new
+    @featurettes = Featurette.all
   end
 
   def team_members

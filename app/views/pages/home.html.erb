@@ -5,57 +5,23 @@
   <div class="container marketing">
     <div class="container px-4 py-5" id="custom-cards">
       <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-          <%= render 'partials/admin/mini_cards', :minicards => @minicards %>
+          <%= render 'partials/admin/general_page/mini_cards', :minicards => @minicards %>
       </div>
     </div>
 
 
-
-
-
-
-
-
 <div class="custom-featurettes">
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading fw-normal lh-1">Recuperare în zile, <span>nu în luni sau ani</span></h2>
-      <p class="lead">Procedurile inovatoare și echipamentele de recuperare de ultimă generație scurtează considerabil timpul de recuperare.</p>
-    </div>
-    <div class="col-md-5" style="overflow: hidden;">
-      <%= cl_image_tag('0171_r2ifrz.jpg', :gravity=>"center", :width=>'100%', :height=>'100%') %>
-    </div>
+<% @featurettes.each_with_index do |f, i| %>
+<div class="row featurette f-animation <%= i.even? ? "f-animation-r" : "f-animation-l" %>">
+  <div class="col-md-7 <%= "order-md-2" if i.even? %>">
+    <h2 class="featurette-heading fw-normal lh-1"><%= f.title_one %> <span><%= f.title_two %></span></h2>
+    <p class="lead"><%= f.content %></p>
   </div>
-
-
-  <div class="row featurette">
-    <div class="col-md-7 order-md-2">
-      <h2 class="featurette-heading fw-normal lh-1">Spații pentru consultații și tratament  <span>generoase, moderne și curate.</span></h2>
-      <p class="lead">Spinal Care este o clinică de recuperare modernă care oferă condiții de top pacienților săi.</p>
-    </div>
-    <div class="col-md-5 order-md-1" style="overflow: hidden;">
-      <%= cl_image_tag("0187_d9kewo.png", class: 'bd-placeholder-img',:gravity=>"center", :width=>'100%', :height=>'100%')%>
-
-    </div>
+  <div class="col-md-5" style="overflow: hidden;">
+    <%= cl_image_tag(f.photo.key, :gravity=>"face", :height=>500, :width=>500, :crop=>"fill", class: 'bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto') %>
   </div>
-
-
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading fw-normal lh-1">Personal calificat <span>și motivat.</span></h2>
-      <p class="lead">La Spinal Care personalul este foarte atent selecționat, instruit permanent și monitorizat.</p>
-    </div>
-    <div class="col-md-5 order-md-1" style="overflow: hidden;">
-      <%= cl_image_tag("088_flnx8t.png", class: 'bd-placeholder-img', :gravity=>"faces", :width=>'100%', :height=>'100%') %>
-
-    </div>
-  </div>
-
 </div>
-
-
-    <!-- /END THE FEATURETTES -->
-
+<% end %>
+</div>
   </div><!-- /.container -->
-
 </main>

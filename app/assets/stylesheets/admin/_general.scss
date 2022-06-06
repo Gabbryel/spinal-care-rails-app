@@ -17,15 +17,10 @@
   }
 }
 
-.upload-photo {
-  padding: 16px 24px;
-  cursor: pointer;
-  font-weight: 500;
-}
-
 th, td {
   border: 1px solid #00000007;
   text-align: center;
+  border-spacing: 0 20px;
 }
 
 h5 {
@@ -34,4 +29,49 @@ h5 {
 
 h3 {
   text-align: center;
+}
+.upload-photo {
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  z-index: 31;
+}
+
+input[type=file]::file-selector-button {
+  border: none;
+  padding: .2em .4em;
+  border-radius: .2em;
+  background-color: $blue-spinal;
+  color: $white-spinal;
+}
+
+.minicard-animation{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+
+.minicard-animation.active-mc {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.f-animation-r, .f-animation-l {
+  position: relative;
+  transform: translateX(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+
+.f-animation-l {
+  transform: translateX(-150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+
+.f-animation-r.active-f,
+.f-animation-l.active-f{
+  transform: translateX(0);
+  opacity: 1;
 }

@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @minicards = MiniCard.all
     @carousel_cards = CarouselCard.all
+    @featurettes = Featurette.all
   end
 
   def about

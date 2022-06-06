@@ -22,6 +22,9 @@ class CarouselCardsController < ApplicationController
   def update
     if @carousel_card.update(car_card_params)
       redirect_to admin_path
+    else
+      redirect_to admin_path
+      flash.alert = 'Nu s-a putut modifica cardul! Reluați procedura!'
     end
   end
 
@@ -32,6 +35,7 @@ class CarouselCardsController < ApplicationController
   def destroy
     if @carousel_card.destroy
       redirect_to admin_path
+      flash.alert = 'Card șters!'
     end
   end
 

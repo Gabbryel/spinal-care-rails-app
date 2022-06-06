@@ -1,0 +1,12 @@
+<%= simple_form_for(cc) do |f| %>
+  <td><%= f.input :photo, label: false %></td>
+  <!-- <td><%= image_tag "", width: 100, class: "hidden", id: "photo-preview" %></td> -->
+  <td><%= f.input :line_one, label: false %></td>
+  <td><%= f.input :line_two, label: false %></td>
+  <td><%= f.input :btn_text, label: false %></td>
+  <td><%= f.input :btn, label: false %></td>
+    <td><%= f.submit cc.id ? 'Modifică card' : 'Card nou', class: "btn btn-sm btn-primary #{@carousel_cards.count > 4 && !cc.id ? 'disabled' : nil }" %></td>
+  <% if cc.id %>
+    <td><%= link_to '🗑',carousel_card_path(cc), method: :delete %></td>
+  <% end %>
+<% end %>
