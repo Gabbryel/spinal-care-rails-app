@@ -16,7 +16,7 @@
       <% @carousel_cards.each do |cc| %>
       <tr>
         <td><%= cc.id %></td>
-        <td><%= cl_image_tag(cc.photo.key, height: 100, width: 100, crop: :fill) %></td>
+        <td><%= cl_image_tag(cc.photo.key, height: 100, width: 100, crop: :fill) if cc.photo.key.present?%></td>
         <%= render 'partials/admin/general_page/carousel_cards_form', cc: cc %>
       </tr>
       <% end %>
