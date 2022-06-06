@@ -8,6 +8,9 @@ class CarouselCardsController < ApplicationController
     @carousel_card = authorize CarouselCard.create(car_card_params)
     if @carousel_card.save!
       redirect_to admin_path
+    else
+      redirect_to admin_path
+      flash.alert = "Cardul nu a putut fi creat!"
     end
   end
 
