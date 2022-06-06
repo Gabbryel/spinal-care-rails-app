@@ -8,10 +8,18 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { vh, vhOnResize} from "../helpers/vh"
+import { previewImageOnFileSelect, displayPreview } from "../helpers/previewImage"
+import { minicardsAnimation } from "../helpers/minicardsAnimation"
+import { featurettesAnimation } from "../helpers/featurettesAnimation"
 
 vh()
 vhOnResize()
+// minicardsAnimation()
+// previewImageOnFileSelect()
+// displayPreview()
 
+window.addEventListener('scroll', minicardsAnimation);
+window.addEventListener('scroll', featurettesAnimation);
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

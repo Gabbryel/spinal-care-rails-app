@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   resources :carousel_cards
   resources :mini_cards
+  resources :featurettes
 
   get 'admin', to: 'admin#general'
   get 'team-members', to: 'admin#team_members'

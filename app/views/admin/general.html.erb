@@ -1,8 +1,9 @@
 <div class="container-fluid px-5 py-5 admin-page" style="font-size: 14px;">
   <% if current_user.admin %>
+    <hr style="height: 4px;" class="my-5">
     <%= render 'partials/admin/user_section', users: @users %>
     <hr style="height: 4px;" class="my-5">
-    <%= render 'partials/admin/home_page_section' %>
+    <%= render 'partials/admin/general_page/home_page_section' %>
     <hr style="height: 4px;" class="my-5">
   <% else %>
   <%= render 'partials/admin/not_allowed' %>

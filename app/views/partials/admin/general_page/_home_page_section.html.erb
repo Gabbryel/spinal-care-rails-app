@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <h3>Administrare home page</h3>
+  <hr>
+  <div class="carousel-cards-admin">
+    <h4>Secțiunea pentru carousel cards</h4>
+    <h5>Card nou pentru carousel</h5>
+    <table style="margin-top: 40px;">
+      <%= render 'partials/admin/general_page/table_header', existing_card: false %>
+      <tr>
+        <%= render 'partials/admin/general_page/carousel_cards_form', cc: @carousel_card %>
+      </tr> 
+    </table>
+    <h5>Carduri pentru carousel existente</h5>
+    <table>
+      <%= render 'partials/admin/general_page/table_header', existing_card: true %>
+      <% @carousel_cards.each do |cc| %>
+      <tr>
+        <td><%= cc.id %></td>
+        <td><%= cl_image_tag(cc.photo.key, height: 100, width: 100, crop: :fill) %></td>
+        <%= render 'partials/admin/general_page/carousel_cards_form', cc: cc %>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <hr>
+  <div class="mini-cards-admin">
+    <h4>Secțiunea pentru mini carduri</h4>
+    <h5>Minicard nou</h5>
+    <table style="margin-top: 40px;">
+      <%= render 'partials/admin/general_page/table_header_minicards', new_card: true %>
+      <tr>
+        <%= render 'partials/admin/general_page/minicards_form', mc: @mini_card %>
+      </tr>
+    </table>
+    <h5>Carduri pentru carousel existente</h5>
+      <div class="mini-cards_index mt-5">
+        <table>
+          <%= render 'partials/admin/general_page/table_header_minicards', new_card: false %>
+          <% @mini_cards.each do |mc| %>
+            <tr>
+              <td><%= mc.id %></td>
+              <td><%= cl_image_tag(mc.photo.key, height: 100, width: 100, crop: :fill) %></td>
+              <%= render 'partials/admin/general_page/minicards_form', mc: mc %>
+            </tr>
+        <% end %>
+      </table>
+      </div>
+  </div>
+  <hr>
+  <div class="featurettes-cards-admin">
+    <h4>Secțiunea carduri featurettes</h4>
+    <h5>Featurette nou</h5>
+      <%= render 'partials/admin/general_page/tables_featurette', new_featurette: true, featurette: @featurette  %>
+    <h5>Carduri pentru featurette existente</h5>
+      <div class="featurettes_index mt-5">
+        <%= render 'partials/admin/general_page/tables_featurette', new_featurette: false, featurette: @featurette  %>
+      </div>
+  </div>
+</div>
