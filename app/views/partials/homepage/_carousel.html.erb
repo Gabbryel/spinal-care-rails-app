@@ -6,7 +6,7 @@
   </div>
   <div class="carousel-inner">
     <% @carousel_cards.each_with_index do |cc, i| %>
-      <div class="carousel-item <%= 'active' if i == 0 %>">
+      <div class="carousel-item <%= 'active' if i && i == 0 %>">
         <%= cl_image_tag(cc.photo.key, class: 'bd-placeholder-img', :gravity=>"faces", :width=>'100%', :height=>'100%') %>
         <div class="container">
           <div class="carousel-caption text-start">
