@@ -1,0 +1,48 @@
+  <% if !existing_card %>
+    <%= simple_form_for(cc) do |f| %>
+      <table class="table">
+        <tr>
+          <th scope="col">Imagine</th>
+          <th scope="col">Titlu</th>
+          <th scope="col">Subtitlu</th>
+          <th scope="col">Titlu btn</th>
+          <th scope="col">Cale buton*</th>
+          <th scope="col">Acțiune</th>
+        </tr>
+        <tr>
+          <td><%= f.input :photo, label: false %></td>
+          <td><%= f.input :line_one, label: false %></td>
+          <td><%= f.input :line_two, label: false %></td>
+          <td><%= f.input :btn_text, label: false %></td>
+          <td><%= f.input :btn, label: false %></td>
+          <td><%= f.submit cc.id ? 'Modifică card' : 'Card nou', class: "btn btn-sm btn-primary #{'disabled' if @carousel_cards.count > 4 && !cc.id }" %></td>
+        </th>
+      </table>
+    <% end %>
+  <% elsif existing_card %>
+    <% @carousel_cards.each_with_index do |cc, i| %>
+    <%= simple_form_for(cc) do |f| %>
+      <table class="table">
+        <tr class="<%= "header-opacity" if i != 0 %>">
+          <th>Imagine</th>
+          <th>Schimbă img</th>
+          <th>Titlu</th>
+          <th>Subtitlu</th>
+          <th>Titlu btn</th>
+          <th>Cale buton*</th>
+          <th>Acțiune</th>
+          <th>Șterge</th>
+        </tr>
+        <tr>
+          <td><%= cl_image_tag(cc.photo.key, height: 100, width: 100, crop: :fill) if cc.photo.key %></td>
+          <td><%= f.input :photo, label: false %></td>
+          <td><%= f.input :line_one, label: false %></td>
+          <td><%= f.input :line_two, label: false %></td>
+          <td><%= f.input :btn_text, label: false %></td>
+          <td><%= f.input :btn, label: false %></td>
+          <td><%= f.submit 'Modifică card', class: "btn btn-sm btn-primary" %></td>
+          <td><%= link_to '🗑', carousel_card_path(cc), method: :delete %></td>
+      </table>
+    <% end %>
+    <% end %>
+  <% end %>

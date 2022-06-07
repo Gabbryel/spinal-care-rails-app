@@ -1,4 +1,0 @@
-<%= simple_form_for(mc) do |f| %>
-  <td><%= f.input :photo, as: :file, label: false %></td>
-  <td><%= f.submit mc.id ? 'Modifică' : 'Card nou' , class: "btn btn-sm btn-primary #{@mini_cards.count > 2 && !mc.id  ? 'disabled' : nil }" %></td>
-<% end %>
