@@ -1,26 +1,26 @@
 <div class="user-container">
   <h3>Administrare useri</h3>
   <hr>
-  <table style="width: 100%">
-    <tr>
-      <th>email</th>
-      <th>set admin</th>
-      <th>set super_admin</th>
-      <th>acțiune</th>
-      <th>șterge</th>
-    </tr>
-    <% users.each do |u| %>
-    <tr>
-      <td><%= u.email %></td>
-      <%= simple_form_for(u) do |f| %>
+  <% users.each_with_index do |u, i| %>
+    <%= simple_form_for(u) do |f| %>
+    <table class="table" style="width: 1000px;">
+        <tr class="<%= "header-opacity" if i != 0 %>" >
+          <th>user</th>
+          <th>set admin</th>
+          <th>set super admin</th>
+          <th>acțiune</th>
+          <th>șterge</th>
+        </tr>
         <% if current_user.super_admin %>
-          <td><%= f.input :admin, label: 'admin', value: !u.admin %></td>
-          <td><%= f.input :super_admin, label: 'superadmin', value: !u.super_admin %></td>
-          <td><%= f.submit 'Actualizează', class: "btn btn-sm btn-primary #{super_admins && u.super_admin ? 'disabled' : nil}" %></td>
-        <% end %>
-      <% end %>
-      <td><%= link_to 'Șterge', user_path(u), class: "btn btn-sm btn-primary #{super_admins && u.super_admin ? 'disabled' : nil} ", method: :delete  %></td>
-    </tr>
+        <tr>
+          <td><%= u.email %></td>
+            <td><%= f.input :admin, label: 'admin', value: !u.admin %></td>
+            <td><%= f.input :super_admin, label: 'superadmin', value: !u.super_admin %></td>
+            <td><%= f.submit 'Actualizează', class: "btn btn-sm btn-primary #{super_admins && u.super_admin ? 'disabled' : nil}" %></td>
+            <td><%= link_to 'Șterge', user_path(u), class: "btn btn-sm btn-primary #{super_admins && u.super_admin ? 'disabled' : nil} ", method: :delete  %></td>
+          </tr>
+          <% end %>
+      </table>
+     <% end %>
     <% end %>
-  </table>
 </div>

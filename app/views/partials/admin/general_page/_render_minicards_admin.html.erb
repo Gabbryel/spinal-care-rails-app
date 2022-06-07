@@ -1,0 +1,33 @@
+<% if !existing_minicard %>
+  <%= simple_form_for(mc) do |f| %>
+    <table class="table" style="width: 400px;">
+      <tr>
+        <th>Img</th>
+        <th>Acțiune</th>
+      </tr>
+      <tr>
+        <td><%= f.input :photo, as: :file, label: false %></td>
+        <td><%= f.submit 'Card nou' , class: "btn btn-sm btn-primary #{"disabled" if @mini_cards.count > 2 && !mc.id }" %></td>
+      </tr>
+    </table>
+  <% end %>
+<% elsif existing_minicard %>
+    <% @mini_cards.each_with_index do |mc, i| %>
+    <%= simple_form_for(mc) do |f| %>
+    <table class="table" style="width: 600px;">
+      <tr class="<%= "header-opacity" if i != 0 %>">
+        <th>Img</th>
+        <th>Schimbă img</th>
+        <th>Acțiune</th>
+        <th>Șterge</th>
+      </tr>
+      <tr>
+        <td><%= cl_image_tag(mc.photo.key, height: 100, width: 100, crop: :fill) if mc.photo.key.present? %></td>
+        <td><%= f.input :photo, as: :file, label: false %></td>
+        <td><%= f.submit 'Modifică', class: "btn btn-sm btn-primary" %></td>
+        <td><%= link_to '🗑', mini_card_path(mc), method: :delete %></td>
+      </tr>
+    </table>
+    <% end %>
+    <% end %>
+<% end %>

@@ -1,36 +1,46 @@
-<table style="margin-top: 40px;">
+<% if !existing_featurette %>
+<%= simple_form_for(featurette) do |f| %>
+  <table class="table" style="margin-top: 40px; width: 60vw">
   <tr>
-    <% if !new_featurette %>
-      <th>Imagine</th>
-    <% end %>
-      <th>Img nouă</th>
+    <th>Img nouă</th>
     <th>Titlu (1)</th>
     <th>Titlu (2)</th>
     <th>Text</th>
     <th>Acțiune</th>
   </tr>
-  <% if new_featurette %>
     <tr>
-      <%= simple_form_for(featurette) do |f| %>
         <td><%= f.input :photo, as: :file, label: false %></td>
         <td><%= f.input :title_one, label: false %></td>
         <td><%= f.input :title_two, label: false %></td>
         <td><%= f.input :content, label: false %></td>
-        <td><%= f.submit new_featurette ? 'Featurette nou' : 'Modifică', class: 'btn btn-sm btn-primary' %></td>
-      <% end %>
-    </tr>
-  <% elsif !new_featurette %>
-  <% @featurettes.each do |f| %>
-  <tr>
-    <td><%= cl_image_tag(f.photo.key, height: 100, width: 100, crop: :fill) if f.photo.key.present? %></td>
-    <%= simple_form_for(f) do |f| %>
-      <td><%= f.input :photo, as: :file, label: false %></td>
-      <td><%= f.input :title_one, label: false %></td>
-      <td><%= f.input :title_two, label: false %></td>
-      <td><%= f.input :content, label: false %></td>
-      <td><%= f.submit 'Modifică', class: 'btn btn-sm btn-primary' %></td>
+        <td><%= f.submit 'Featurette nou', class: 'btn btn-sm btn-primary' %></td>
+      </tr>
+    </table>
+  <% end %>
+    
+  <% elsif existing_featurette %>
+    <% @featurettes.each_with_index do |ft, i| %>
+    <%= simple_form_for(ft) do |f| %>
+    <table class="table">
+      <tr class="<%= "header-opacity" if i != 0 %>">
+        <th>Img</th>
+        <th>Img nouă</th>
+        <th>Titlu (1)</th>
+        <th>Titlu (2)</th>
+        <th>Text</th>
+        <th>Acțiune</th>
+        <th>Șterge</th>
+      </tr>
+      <tr>
+        <td><%= cl_image_tag(ft.photo.key, height: 100, width: 100, crop: :fill) if ft.photo.key.present? %></td>
+        <td><%= f.input :photo, as: :file, label: false %></td>
+        <td><%= f.input :title_one, label: false %></td>
+        <td><%= f.input :title_two, label: false %></td>
+        <td><%= f.input :content, label: false %></td>
+        <td><%= f.submit 'Modifică', class: 'btn btn-sm btn-primary' %></td>
+        <td><%= link_to '🗑', featurette_path(ft), method: :delete %></td>
+      </tr>
+    </table>
     <% end %>
-  </tr>
 <% end %>
   <% end %>
-</table>
