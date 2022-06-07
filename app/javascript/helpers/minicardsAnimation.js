@@ -4,7 +4,7 @@ const minicardsAnimation = () => {
     minicards.forEach(mc => {
       let windowHeight = window.innerHeight;
       let mcDistanceFromTop = mc.getBoundingClientRect().top;
-      if (mcDistanceFromTop < windowHeight * .90 ) {
+      if (mcDistanceFromTop < windowHeight * .88 ) {
         mc.classList.add('active-mc')
       } else {
         mc.classList.remove('active-mc')

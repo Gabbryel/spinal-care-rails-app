@@ -12,13 +12,13 @@
 
 <div class="custom-featurettes">
 <% @featurettes.each_with_index do |f, i| %>
-<div class="row featurette f-animation <%= i.even? ? "f-animation-r" : "f-animation-l" %>">
+<div class="row featurette f-animation">
   <div class="col-md-7 <%= "order-md-2" if i.even? %>">
     <h2 class="featurette-heading fw-normal lh-1"><%= f.title_one %> <span><%= f.title_two %></span></h2>
     <p class="lead"><%= f.content %></p>
   </div>
   <div class="col-md-5" style="overflow: hidden;">
-    <%= cl_image_tag(f.photo.key, :gravity=>"face", :height=>500, :width=>500, :crop=>"fill", class: 'bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto') %>
+    <%= cl_image_tag(f.photo.key, :gravity=>"face", :height=>500, :width=>500, :crop=>"fill", class: 'bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto') if f.photo.key.present? %>
   </div>
 </div>
 <% end %>

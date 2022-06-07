@@ -39,7 +39,7 @@
           <% @mini_cards.each do |mc| %>
             <tr>
               <td><%= mc.id %></td>
-              <td><%= cl_image_tag(mc.photo.key, height: 100, width: 100, crop: :fill) %></td>
+              <td><%= cl_image_tag(mc.photo.key, height: 100, width: 100, crop: :fill) if mc.photo.key.present? %></td>
               <%= render 'partials/admin/general_page/minicards_form', mc: mc %>
             </tr>
         <% end %>

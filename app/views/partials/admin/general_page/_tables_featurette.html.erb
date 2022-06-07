@@ -22,17 +22,15 @@
   <% elsif !new_featurette %>
   <% @featurettes.each do |f| %>
   <tr>
-    <td><%= cl_image_tag(f.photo.key, height: 100, width: 100, crop: :fill) %></td>
+    <td><%= cl_image_tag(f.photo.key, height: 100, width: 100, crop: :fill) if f.photo.key.present? %></td>
     <%= simple_form_for(f) do |f| %>
-    <td><%= f.input :photo, as: :file, label: false %></td>
-    <td><%= f.input :title_one, label: false %></td>
-    <td><%= f.input :title_two, label: false %></td>
-    <td><%= f.input :content, label: false %></td>
-    <td><%= f.submit 'Modifică', class: 'btn btn-sm btn-primary' %></td>
+      <td><%= f.input :photo, as: :file, label: false %></td>
+      <td><%= f.input :title_one, label: false %></td>
+      <td><%= f.input :title_two, label: false %></td>
+      <td><%= f.input :content, label: false %></td>
+      <td><%= f.submit 'Modifică', class: 'btn btn-sm btn-primary' %></td>
     <% end %>
   </tr>
 <% end %>
   <% end %>
-
-
 </table>

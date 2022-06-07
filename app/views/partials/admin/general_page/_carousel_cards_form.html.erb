@@ -5,7 +5,7 @@
   <td><%= f.input :line_two, label: false %></td>
   <td><%= f.input :btn_text, label: false %></td>
   <td><%= f.input :btn, label: false %></td>
-    <td><%= f.submit cc.id ? 'Modifică card' : 'Card nou', class: "btn btn-sm btn-primary #{@carousel_cards.count > 4 && !cc.id ? 'disabled' : nil }" %></td>
+    <td><%= f.submit cc.id ? 'Modifică card' : 'Card nou', class: "btn btn-sm btn-primary #{'disabled' if @carousel_cards.count > 4 && !cc.id }" %></td>
   <% if cc.id %>
     <td><%= link_to '🗑',carousel_card_path(cc), method: :delete %></td>
   <% end %>

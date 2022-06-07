@@ -12,7 +12,7 @@
     <% users.each do |u| %>
     <tr>
       <td><%= u.email %></td>
-      <%= simple_form_for u do |f| %>
+      <%= simple_form_for(u) do |f| %>
         <% if current_user.super_admin %>
           <td><%= f.input :admin, label: 'admin', value: !u.admin %></td>
           <td><%= f.input :super_admin, label: 'superadmin', value: !u.super_admin %></td>
