@@ -1,0 +1,19 @@
+<div class="reviews-homepage">
+  <div class="total-rating"><%= total_star_rating.round(1) %></div>
+  <div class="reviews-question">Ce spun pacienții noștri</div>
+  <div class="reviews-index">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% @reviews.each_with_index do |r, i| %>
+          <div class="carousel-item <%= 'active' if i && i == 0 %>">
+            <div class="container">
+              <p class="d-flex flex-column justify-content-center"><%= r.content %></p>
+              <p><%= "#{"☆" * r.rating}" %></p>
+              <p><%= r.name %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
