@@ -3,12 +3,19 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    redirect_to root_path
-    flash.alert = 'Ruta respectivă nu este disponibilă!'
+    if !@user
+      redirect_to root_path
+      flash.alert = 'Habar n-am ce cauți!!!'
+    else
+      redirect_to root_path
+      flash.alert = 'Ruta respectivă nu este disponibilă!'
+    end
   end
 
   def index
     @users = policy_scope(User)
+    redirect_to root_path
+    flash.alert = 'Habar n-am ce cauți!!!'
   end
 
   def edit

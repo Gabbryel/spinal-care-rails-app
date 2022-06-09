@@ -1,0 +1,12 @@
+<div class="review-modal" id="review-modal">
+  <div class="review-modal-main">
+    <button type="button" class="btn-close" id="btn-close"></button>
+    <h5 class="mb-2">Scrie on recenzie:</h5>
+    <%= simple_form_for @review do |f| %>
+    <%= f.input :name, class: "mb-3" %>
+    <%= f.input :rating, collection: (1..5), class: "mb-3" %>
+    <%= f.input :content, class: "mb-3" %>
+    <%= f.submit "Trimite recenzia", class: "btn btn-primary mt-5" %>
+  <% end %>
+  </div>
+</div>

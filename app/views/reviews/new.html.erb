@@ -1,0 +1,6 @@
+  <%= simple_form_for @review do |f| %>
+    <%= f.input :name, class: "mb-3" %>
+    <%= f.input :rating, collection: (1..5), class: "mb-3" %>
+    <%= f.input :content, class: "mb-3" %>
+    <%= f.submit "Trimite recenzia", class: "btn btn-primary" %>
+  <% end %>

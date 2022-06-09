@@ -9,4 +9,12 @@ module ApplicationHelper
   def super_admins
     User.where(super_admin: true).count <= 1
   end
+
+  def total_star_rating
+    if @reviews.empty?
+      '--'
+    else
+      @reviews.pluck(:rating).sum.to_f / @reviews.count
+    end
+  end
 end

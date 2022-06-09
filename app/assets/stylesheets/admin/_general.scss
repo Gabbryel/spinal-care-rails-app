@@ -67,27 +67,3 @@ input[type=file]::file-selector-button {
   color: $white-spinal;
 }
 
-.minicard-animation{
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: 2s all ease;
-}
-
-.minicard-animation.active-mc {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.f-animation {
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: 2s all ease;
-}
-
-.f-animation.active-f {
-  opacity: 1;
-  transform: translateY(0);
-}
-

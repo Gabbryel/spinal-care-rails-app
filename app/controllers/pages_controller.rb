@@ -5,6 +5,8 @@ class PagesController < ApplicationController
     @minicards = MiniCard.all
     @carousel_cards = CarouselCard.all
     @featurettes = Featurette.all
+    @review = Review.new()
+    @reviews = Review.all
   end
 
   def about
