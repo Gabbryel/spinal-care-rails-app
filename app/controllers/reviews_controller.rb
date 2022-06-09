@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  skip_before_action :authenticate_user!, except: %i[destroy]
   def new
     @review = authorize Review.new()
   end
