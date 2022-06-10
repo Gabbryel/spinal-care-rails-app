@@ -1,7 +1,8 @@
 const minicardsAnimation = () => {
   let minicards = Array.from(document.getElementsByClassName('minicard-animation'));
   if (minicards) {
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', (e) => {
+        e.preventDefault
         minicards.forEach(mc => {
           let windowHeight = window.innerHeight;
           let mcDistanceFromTop = mc.getBoundingClientRect().top;
@@ -11,7 +12,7 @@ const minicardsAnimation = () => {
             mc.classList.remove('active-mc')
           }
         })
-      })
+      }, {passive: true})
   }
 }
 

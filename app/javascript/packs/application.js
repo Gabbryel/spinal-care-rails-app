@@ -8,22 +8,19 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { vh, vhOnResize} from "../helpers/vh"
-// import { previewImageOnFileSelect, displayPreview } from "../helpers/previewImage"
-import { minicardsAnimation } from "../helpers/minicardsAnimation"
-import { featurettesAnimation } from "../helpers/featurettesAnimation"
-import { starRating } from "../plugins/starRating"
+import "controllers"
+import "bootstrap"
+
 import { reviewToggle } from "../helpers/homepageModal"
 
 vh()
 vhOnResize()
-starRating()
 reviewToggle()
-minicardsAnimation();
-featurettesAnimation();
+
+
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 
-import "controllers"
-import "bootstrap"

@@ -245,9 +245,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  min-height: calc(var(--vh) * 100);
+  min-height: calc(var(--vh) * 110);
   background-color: $modal-spinal;
-  z-index: 100;
+  z-index: 110;
   justify-content: center;
   align-items: center;
   transform: translateY(0);
@@ -280,18 +280,27 @@
   width: 100%;
   align-content: center;
   background-color: $blue-spinal;
-  .total-rating {
+  .total-rating, #new-review {
     position: absolute;
-    font-size: calc(4px + 6vw );
+    font-size: calc(4px + 5vw );
     color: $white-spinal;
     background-color: $green-spinal;
     border-radius: 50%;
     padding: 15px;
     font-weight: 900;
-    bottom: 25%;
+    bottom: 80%;
     right: 5%;
-    transform: rotate(15deg);
   }
+
+  #new-review {
+    border-radius: 10px;
+    z-index: 11;
+    font-size: calc(4px + 2vw );
+    border: unset;
+    transform: rotate(-15deg);
+    bottom: -10%;
+  }
+
   .reviews-question {
     display: flex;
     align-items: center;

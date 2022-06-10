@@ -1,0 +1,14 @@
+<div class="reviews-section" id="reviews-section">
+  <h4 class="mb-5">Secțiunea aprobare/ștergere recenzii</h4>
+  <% @reviews.each do |r| %>
+    <%= simple_form_for(r) do |f| %>
+      <div class="review-row">
+        <span><%= r.content %></span>
+        <span><%= f.input :approved, label: false %></span>
+        <span><%= f.submit 'Aprobă', class: 'btn btn-primary' %></span>
+        <span><%= link_to '🗑', review_path(r), method: :delete %></span>
+      </div>
+      <hr>
+    <% end %>
+  <% end %>
+</div>

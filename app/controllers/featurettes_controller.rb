@@ -7,9 +7,9 @@ class FeaturettesController < ApplicationController
   def create
     @featurette = authorize Featurette.create(featurette_params)
     if @featurette.save!
-      redirect_to admin_path
+      redirect_to admin_path(anchor: "featurettes-cards-admin")
     else
-      redirect_to admin_path
+      redirect_to admin_path(anchor: "featurettes-cards-admin")
       flash.alert = "Cardul featurette nu a fost creat!"
     end
   end
@@ -26,19 +26,19 @@ class FeaturettesController < ApplicationController
 
   def update
     if @featurette.update(featurette_params)
-      redirect_to admin_path
+      redirect_to admin_path(anchor: "featurettes-cards-admin")
     else
-      redirect_to admin_path
+      redirect_to admin_path(anchor: "featurettes-cards-admin")
       flash.alert = "Cardul featurette nu a fost modificat!"
     end
   end
 
   def destroy
     if @featurette.destroy
-      redirect_to admin_path
+      redirect_to admin_path(anchor: "featurettes-cards-admin")
       flash.alert = "Cardul featurette a fost șters!"
     else
-      redirect_to admin_path
+      redirect_to admin_path(anchor: "featurettes-cards-admin")
       flash.alert = "Cardul featurette nu a fost șters!"
     end
   end

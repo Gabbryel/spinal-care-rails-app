@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <h3>Administrare home page</h3>
   <hr>
-  <div class="carousel-cards-admin">
+  <div class="carousel-cards-admin" id="carousel-cards-admin">
     <h4>Secțiunea pentru carousel cards</h4>
     <h5>Card nou pentru carousel</h5>
       <%= render 'partials/admin/general_page/render_carousel_admin', existing_card: false, cc: @carousel_card %>
@@ -9,7 +9,7 @@
     <%= render 'partials/admin/general_page/render_carousel_admin', existing_card: true %>
   </div>
   <hr>
-  <div class="mini-cards-admin">
+  <div class="mini-cards-admin" id="mini-cards-admin">
     <h4>Secțiunea pentru mini carduri</h4>
     <div class="mini-flex">
       <div class="mini-cards-new">
@@ -23,7 +23,7 @@
     </div>
   </div>
   <hr>
-  <div class="featurettes-cards-admin">
+  <div class="featurettes-cards-admin" id="featurettes-cards-admin">
     <h4>Secțiunea carduri featurettes</h4>
     <h5>Featurette nou</h5>
       <%= render 'partials/admin/general_page/tables_featurette', existing_featurette: false, featurette: @featurette  %>
@@ -32,4 +32,6 @@
         <%= render 'partials/admin/general_page/tables_featurette', existing_featurette: true, featurette: @featurette  %>
       </div>
   </div>
+  <hr>
+  <%= render 'partials/admin/general_page/reviews_section' %>
 </div>

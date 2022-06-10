@@ -14,7 +14,7 @@ module ApplicationHelper
     if @reviews.empty?
       '--'
     else
-      @reviews.pluck(:rating).sum.to_f / @reviews.count
+      (@reviews.pluck(:rating).sum.to_f / @reviews.count).round(1)
     end
   end
 end
