@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :carousel_cards
   resources :mini_cards
   resources :featurettes
-  resources :reviews, only: [:new, :create, :destroy]
+  resources :reviews, only: [:new, :create, :edit, :update, :destroy]
 
   get 'admin', to: 'admin#general'
   get 'team-members', to: 'admin#team_members'

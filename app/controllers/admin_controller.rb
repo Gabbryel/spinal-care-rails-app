@@ -7,6 +7,7 @@ class AdminController < ApplicationController
     @carousel_cards = CarouselCard.all
     @featurette = Featurette.new
     @featurettes = Featurette.all
+    @reviews = Review.where(approved: false)
   end
 
   def team_members

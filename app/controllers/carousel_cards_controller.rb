@@ -7,7 +7,7 @@ class CarouselCardsController < ApplicationController
   def create
     @carousel_card = authorize CarouselCard.create(car_card_params)
     if @carousel_card.save!
-      redirect_to admin_path
+      redirect_to admin_path(anchor: 'carousel-cards-admin')
     else
       redirect_to admin_path
       flash.alert = "Cardul nu a putut fi creat!"
@@ -24,7 +24,7 @@ class CarouselCardsController < ApplicationController
 
   def update
     if @carousel_card.update(car_card_params)
-      redirect_to admin_path
+      redirect_to admin_path(anchor: 'carousel-cards-admin')
     else
       redirect_to admin_path
       flash.alert = 'Nu s-a putut modifica cardul! Reluați procedura!'
@@ -37,7 +37,7 @@ class CarouselCardsController < ApplicationController
 
   def destroy
     if @carousel_card.destroy
-      redirect_to admin_path
+      redirect_to admin_path(anchor: 'carousel-cards-admin')
       flash.alert = 'Card șters!'
     end
   end

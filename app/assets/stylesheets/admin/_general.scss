@@ -67,3 +67,17 @@ input[type=file]::file-selector-button {
   color: $white-spinal;
 }
 
+.reviews-section {
+  position: relative;
+  margin-top: 50px;
+  @media(min-width: 1024px) {
+    width: 70%;
+  }
+}
+
+.review-row {
+  display: grid;
+  position: relative;
+  grid-template-columns: 80% 1fr 1fr 1fr;
+  gap: 20px;
+}

@@ -11,7 +11,7 @@ const featurettesAnimation = () => {
           f.classList.remove('active-f')
         }
       })
-    })
+    }, {passive: true})
   }
 }
 

@@ -13,7 +13,15 @@ class ReviewPolicy < ApplicationPolicy
     new?
   end
 
-  def destroy
+  def destroy?
     user.admin || user.super_admin
+  end
+
+  def edit?
+    destroy?
+  end
+
+  def update?
+    destroy?
   end
 end
