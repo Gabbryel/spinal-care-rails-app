@@ -11,11 +11,11 @@ import { vh, vhOnResize} from "../helpers/vh"
 import "controllers"
 import "bootstrap"
 
-import { reviewToggle } from "../helpers/homepageModal"
+// import { reviewToggle } from "../helpers/homepageModal"
 
 vh()
 vhOnResize()
-reviewToggle()
+// reviewToggle()
 
 
 

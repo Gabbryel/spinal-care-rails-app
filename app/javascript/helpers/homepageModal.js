@@ -9,8 +9,11 @@ const reviewToggle = () => {
         modal.classList.add('review-modal-active')
         body.classList.add('short-body')
     }
-    carouselModalBtn.addEventListener('click', showModal);
     navModalBtn.addEventListener('click', showModal);
+    carouselModalBtn.addEventListener('click', () => {
+      window.scrollTo(0, 0);
+      showModal()
+    });
 
     closeReviewModal.addEventListener('click', () => {
       modal.classList.remove('review-modal-active')
