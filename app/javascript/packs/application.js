@@ -15,9 +15,6 @@ import "bootstrap"
 
 vh()
 vhOnResize()
-// reviewToggle()
-
-
 
 Rails.start()
 Turbolinks.start()

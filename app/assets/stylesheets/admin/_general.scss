@@ -38,8 +38,6 @@ tr {
   }
 }
 
-
-
 h5 {
   margin: 40px 0;
 }
@@ -67,17 +65,48 @@ input[type=file]::file-selector-button {
   color: $white-spinal;
 }
 
+.new-minicard-section {
+  @media(min-width: 1024px) {
+    width: 50%;
+  }
+}
+.new-minicard-section__headers, .new-minicard-section__form {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 0 30px;
+}
+
+.minicards-index-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  width: 100%;
+  @media(min-width: 1024px) {
+    width: 80%;
+  }
+}
+
+.minicards-index-section__headers, .minicards-index-section__form {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+  gap: 0 20px;
+  width: 100%;
+}
+
 .reviews-section {
   position: relative;
   margin-top: 50px;
   @media(min-width: 1024px) {
-    width: 70%;
+    width: 80%;
   }
 }
 
-.review-row {
+.review-row, .reviews-edit-title {
   display: grid;
   position: relative;
-  grid-template-columns: 80% 1fr 1fr 1fr;
+  grid-template-columns: 60% 1fr 1fr 1fr 1fr;
   gap: 20px;
+  overflow: hidden;
 }

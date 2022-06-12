@@ -9,18 +9,7 @@
     <%= render 'partials/admin/general_page/render_carousel_admin', existing_card: true %>
   </div>
   <hr>
-  <div class="mini-cards-admin" id="mini-cards-admin">
-    <h4>Secțiunea pentru mini carduri</h4>
-    <div class="mini-flex">
-      <div class="mini-cards-new">
-        <h5>Minicard nou</h5>
-          <%= render 'partials/admin/general_page/render_minicards_admin', mc: @mini_card, existing_minicard: false %>
-      </div>
-        <div class="mini-cards_index">
-          <h5>Carduri pentru carousel existente</h5>
-          <%= render 'partials/admin/general_page/render_minicards_admin', existing_minicard: true %>
-        </div>
-    </div>
+    <%= render 'partials/admin/general_page/render_minicards_admin', mc: @mini_card %>
   </div>
   <hr>
   <div class="featurettes-cards-admin" id="featurettes-cards-admin">
