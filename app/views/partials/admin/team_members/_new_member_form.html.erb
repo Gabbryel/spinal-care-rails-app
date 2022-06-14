@@ -1,0 +1,13 @@
+<div class="new_member_modal" id="new_member_modal">
+  <div class="new_member_form">
+    <h4 class="text-center">Creează un membru nou</h4>
+    <%= simple_form_for(@member) do |f| %>
+      <%= f.input :first_name, label: false, placeholder: 'Prenume' %>
+      <%= f.input :last_name, label: false, placeholder: 'Nume' %>
+      <%= f.input :role, collection: ['medic', 'asistent(ă)', 'kinetoterapeut' ], label: false, prompt: 'Alege rol', id: 'role-input' %>
+      <%= f.input :photo, as: :file, label: false %>
+      <%= f.submit 'Trimite', class: 'btn btn-primary' %>
+    <% end %>
+    <button type="button" class="btn-close" id="btn-close"></button>
+  </div>
+</div>

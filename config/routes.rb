@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :mini_cards
   resources :featurettes
   resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+  resources :members
 
   get 'admin', to: 'admin#general'
   get 'team-members', to: 'admin#team_members'

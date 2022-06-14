@@ -1,1 +1,6 @@
-<h1>Medical team members will be added, edited and deleted on this page!</h1>
+<div class="container-fluid">
+  <button id="create-new-member" class="btn btn-primary mt-5">Adaugă un membru</button>
+  <%= render "partials/admin/team_members/team_members", admin_page: true %>
+  <%= render "partials/admin/team_members/new_member_form" %>
+</div>
+<%= javascript_pack_tag 'adminPage.js' %>

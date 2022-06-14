@@ -11,6 +11,8 @@ class AdminController < ApplicationController
   end
 
   def team_members
+    @member = Member.new()
+    @members = Member.all
   end
 
   def medical_appliances
