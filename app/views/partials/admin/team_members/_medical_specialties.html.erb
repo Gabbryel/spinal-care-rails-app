@@ -1,0 +1,22 @@
+<div class="specialties-section mt-5" id="specialties-section">
+  <h3>Secțiunea pentru adăugare/editare specialități medicale</h3>
+  <div class="specialties-form my-5">
+    <h3>Adaugă specialitate nouă</h3>
+    <%= simple_form_for(@specialty) do |f| %>
+      <%= f.input :name, label: false, placeholder: 'Specialitate medicală' %>
+      <button class="btn btn-primary"><i class="fas fa-folder-plus"></i></button>
+    <% end %>
+  </div>
+  <div class="specialties-index">
+    <h3>Specialități medicale existente</h3>
+    <% @specialties.each do |s| %>
+      <%= simple_form_for(s) do |f| %>
+        <%= f.input :name, label: false %>
+        <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+        <%= link_to specialty_path(s), method: :delete, data: {confirm: "Vrei să ștergi specialitatea medicală: #{s.name}?" }, class: 'btn btn-primary' do %>
+          <i class="fas fa-backspace"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

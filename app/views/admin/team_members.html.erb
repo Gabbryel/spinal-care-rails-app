@@ -1,6 +1,12 @@
 <div class="container-fluid">
+  <hr>
+  <%= render "partials/admin/team_members/professions_section" if current_page?('/team-members') %>
+  <hr>
+  <%= render "partials/admin/team_members/medical_specialties" if current_page?('/team-members') %>
+  <hr>
+  <h3>Secțiunea pentru adăugare/editare membri</h3>
   <button id="create-new-member" class="btn btn-primary mt-5">Adaugă un membru</button>
   <%= render "partials/admin/team_members/team_members", admin_page: true %>
-  <%= render "partials/admin/team_members/new_member_form" %>
+  <%= render "partials/admin/team_members/new_member_form" if current_page?('/team-members') %>
 </div>
 <%= javascript_pack_tag 'adminPage.js' %>
