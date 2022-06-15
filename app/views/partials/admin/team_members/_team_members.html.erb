@@ -1,6 +1,6 @@
 <div class="member-index mt-5">
   <% @members.each do |m| %>
-    <div class="member-card" style="background-image: url('<%= cl_image_path m.photo.key if m.photo.key.present? %>')">
+    <div class="member-card" style="background-image: url('<%= m.photo.key.present? ? cl_image_path(m.photo.key, :gravity=>"face") : image_path('doctor.png') %>')">
       <span></span>
       <div class="member_card__details">
         <h3 class="pt-4"><%= "#{m.first_name} #{m.last_name}" %></h3>

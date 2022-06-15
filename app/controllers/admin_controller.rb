@@ -12,7 +12,7 @@ class AdminController < ApplicationController
 
   def team_members
     @member = Member.new()
-    @members = Member.all
+    @members = Member.order(last_name: :asc)
   end
 
   def medical_appliances

@@ -31,7 +31,22 @@ class MembersController < ApplicationController
   end
 
   def index
-    @members = policy_scope(Member)
+    # binding.pry
+      if !params[:search].nil? && params[:search][:roles].present? && params[:search][:query].present?
+        @filter = params[:search][:roles]
+        @members = @filter.empty? ? policy_scope(Member) : policy_scope(Member).where(role: @filter)
+        @members = @members.where("last_name ILIKE ?", "%#{params[:search][:query]}%")
+        members_empty
+      elsif !params[:search].nil? && params[:search][:roles].present?
+        @filter = params[:search][:roles]
+        @members = @filter.empty? ? policy_scope(Member) : policy_scope(Member).where(role: @filter)
+        members_empty
+      elsif !params[:search].nil? && params[:search][:query].present?
+        @members = policy_scope(Member).where("last_name ILIKE ?", "%#{params[:search][:query]}%")
+        members_empty
+    else
+      @members = policy_scope(Member).all
+    end
   end
 
   def show
@@ -55,6 +70,12 @@ class MembersController < ApplicationController
 
   def set_member
     @member = authorize Member.find_by(slug: params[:id])
+  end
+
+  def members_empty
+    if @members.empty?
+      flash.alert = "Căutarea nu returnat nici un rezultat!"
+    end
   end
 
 end
