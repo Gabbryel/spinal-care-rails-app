@@ -8,7 +8,7 @@
   <div class="members-filter-form">
     <%= simple_form_for :search, url: members_path, method: 'GET' do |f| %>
       <%= f.input :roles, label: false, collection: Profession.all.pluck(:name), prompt: 'Profesie' %>
-      <%= f.input :specialty, label: false, collection: ['obg', 'reumato'], prompt: 'Specialitate' %>
+      <%= f.input :specialty, label: false, collection: Specialty.order(name: :asc).pluck(:name), prompt: 'Specialitate' %>
       <%= f.input :query, as: :string, label: false, placeholder: 'Caută după nume' %>
       <%= f.submit 'Trimite', class: 'btn btn-primary' %>
     <% end %>

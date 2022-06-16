@@ -1,10 +1,11 @@
 <div class="member-index mt-5">
   <% @members.each do |m| %>
-    <div class="member-card" style="background-image: url('<%= m.photo.key.present? ? cl_image_path(m.photo.key, :gravity=>"face") : image_path('doctor.png') %>')">
+    <div class="member-card" id="member-card-<%=m.id%>" style="background-image: url('<%= m.photo.key.present? ? cl_image_path(m.photo.key, :gravity=>"face") : image_path('doctor.png') %>')">
       <span></span>
       <div class="member_card__details">
         <h3 class="pt-4"><%= "#{m.first_name} #{m.last_name}" %></h3>
         <p><%= m.role %></p>
+        <p><%= m.specialty %></p>
       </div>
       <%= link_to admin_page ? 'Prezentare' : 'Află mai multe', member_path(m), class: 'card-button' %>
       <% if policy(m).edit? && policy(m).destroy? && admin_page %>

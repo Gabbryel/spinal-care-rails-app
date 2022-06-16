@@ -9,7 +9,7 @@ class MembersController < ApplicationController
   def create
     @member = authorize Member.new(member_params)
     if @member.save!
-      redirect_to team_members_path(anchor: "member-#{@member.id}")
+      redirect_to team_members_path(anchor: "member-card-#{@member.id}")
       flash.alert = "Ai creat un cont de #{@member.role} nou"
     else
       render :new
@@ -22,7 +22,7 @@ class MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
-      redirect_to team_members_path(anchor: "member-#{@member.id}")
+      redirect_to team_members_path(anchor: "member-card-#{@member.id}")
       flash.alert = "Ai modificat contul #{@member.first_name} #{@member.last_name}"
     else
       render :edit
@@ -32,17 +32,24 @@ class MembersController < ApplicationController
 
   def index
     # binding.pry
-      if !params[:search].nil? && params[:search][:roles].present? && params[:search][:query].present?
+      if !params[:search].nil? && params[:search][:roles].present? && params[:search][:specialty] && params[:search][:query].present?
         @filter = params[:search][:roles]
         @members = @filter.empty? ? policy_scope(Member) : policy_scope(Member).where(role: @filter)
-        @members = @members.where("last_name ILIKE ?", "%#{params[:search][:query]}%")
+        @members = @members.where(specialty: params[:search][:specialty])
+        @members = @members.where("slug ILIKE ?", "%#{params[:search][:query]}%")
         members_empty
+      elsif !params[:search].nil? && params[:search][:roles].present? && params[:search][:specialty].present?
+        @filter = params[:search][:roles]
+        @members = @filter.empty? ? policy_scope(Member) : policy_scope(Member).where(role: @filter)
+        @members = @members.where(specialty: params[:search][:specialty])
+      elsif !params[:search].nil? && params[:search][:specialty].present?
+        @members = policy_scope(Member).where(specialty: params[:search][:specialty])
       elsif !params[:search].nil? && params[:search][:roles].present?
         @filter = params[:search][:roles]
         @members = @filter.empty? ? policy_scope(Member) : policy_scope(Member).where(role: @filter)
         members_empty
       elsif !params[:search].nil? && params[:search][:query].present?
-        @members = policy_scope(Member).where("last_name ILIKE ?", "%#{params[:search][:query]}%")
+        @members = policy_scope(Member).where("slug ILIKE ?", "%#{params[:search][:query]}%")
         members_empty
     else
       @members = policy_scope(Member).all
@@ -57,7 +64,7 @@ class MembersController < ApplicationController
       redirect_to team_members_path
       flash.alert = "Ai șters contul cu succes!"
       else
-        redirect_to team_members_path(anchor: "member-#{@member.id}")
+        redirect_to team_members_path(anchor: "member-card-#{@member.id}")
         flash.alert = "Se pare că acest cont are extra-vieți! Mai încearcă încă o dată ștergerea!"
     end
   end
@@ -65,7 +72,7 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:last_name, :first_name, :role, :photo, :slug)
+    params.require(:member).permit(:last_name, :first_name, :role, :specialty, :photo, :slug)
   end
 
   def set_member
