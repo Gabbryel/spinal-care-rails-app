@@ -1,12 +1,32 @@
-.profession-form, .professions-index,
-.specialties-form, .specialties-index {
+.profession-form, .specialties-form {
   width: 50%;
   min-width: 300px;
   max-width: 500px;
   form {
     display: grid;
+    position: relative;
+    grid-template-columns: 5fr 1fr;
+    gap: 10px;
+    background-color: $white-spinal;
+    padding: 15px 30px;
+    border-radius: 10px;
+    height: 20px;
+    overflow: hidden;
+    .form-group {
+      height: 20px;
+      .form-control::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
+.professions-index, .specialties-index {
+  form {
+    display: grid;
     grid-template-columns: 4fr 1fr;
-    gap: 30px;
+    gap: 10px;
   }
 }
 
@@ -16,7 +36,20 @@
   grid-template-rows: auto;
   row-gap: 20px;
   form {
-    grid-template-columns: 5fr repeat(2, 1fr);
+    grid-template-columns: 8fr repeat(2, 1fr);
+  }
+}
+
+.professions-each, .specialties-each {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  form {
+    position: relative;
+    background-color: $white-spinal;
+    padding: 15px 30px;
+    width: 350px;
+    border-radius: 10px;
   }
 }
 
@@ -178,3 +211,4 @@
       gap: 20px;
     }
   }
+

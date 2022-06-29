@@ -9,14 +9,16 @@
   </div>
   <div class="specialties-index">
     <h3>Specialități medicale existente</h3>
-    <% @specialties.each do |s| %>
-      <%= simple_form_for(s) do |f| %>
-        <%= f.input :name, label: false %>
-        <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
-        <%= link_to specialty_path(s), method: :delete, data: {confirm: "Vrei să ștergi specialitatea medicală: #{s.name}?" }, class: 'btn btn-primary' do %>
-          <i class="fas fa-backspace"></i>
+    <div class="specialties-each">
+      <% @specialties.each do |s| %>
+        <%= simple_form_for(s) do |f| %>
+          <%= f.input :name, label: false %>
+          <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+          <%= link_to specialty_path(s), method: :delete, data: {confirm: "Vrei să ștergi specialitatea medicală: #{s.name}?" }, class: 'btn btn-primary' do %>
+            <i class="fas fa-backspace"></i>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

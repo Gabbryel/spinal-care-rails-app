@@ -6,12 +6,11 @@
 import { vh, vhOnResize} from "../helpers/vh"
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
+import "@hotwired/turbo-rails"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "controllers"
 import "bootstrap"
-
-// import { reviewToggle } from "../helpers/homepageModal"
 
 vh()
 vhOnResize()
@@ -19,5 +18,3 @@ vhOnResize()
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-
