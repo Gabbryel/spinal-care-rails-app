@@ -12,7 +12,11 @@ class AdminController < ApplicationController
 
   def team_members
     @member = Member.new()
-    @members = Member.all
+    @members = Member.order(last_name: :asc)
+    @profession = Profession.new()
+    @professions = Profession.order(name: :asc)
+    @specialty = Specialty.new()
+    @specialties = Specialty.order(name: :asc)
   end
 
   def medical_appliances

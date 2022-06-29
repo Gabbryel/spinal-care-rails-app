@@ -3,7 +3,8 @@
   <%= simple_form_for(m) do |f| %>
     <%= f.input :first_name, label: false, placeholder: 'Prenume' %>
     <%= f.input :last_name, label: false, placeholder: 'Nume' %>
-    <%= f.input :role, collection: ['medic', 'asistent(ă)', 'kinetoterapeut' ], label: false, prompt: 'Alege rol', id: 'role-input' %>
+    <%= f.input :role, collection: Profession.all.pluck(:name), label: false, prompt: 'Alege rol', id: 'role-input' %>
+    <%= f.input :specialty, collection: Specialty.all.pluck(:name), label: false, prompt: 'Alege specialitate' %>
     <%= f.input :photo, as: :file, label: false %>
     <%= f.submit 'Trimite', class: 'btn btn-primary' %>
   <% end %>

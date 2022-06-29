@@ -1,0 +1,24 @@
+<div class="professions-section mt-5" id="professions-section">
+  <h3>Secțiunea pentru adăugare/editare profesii</h3>
+  <div class="profession-form my-5">
+    <h3>Adaugă profesie nouă</h3>
+    <%= simple_form_for(@profession) do |f| %>
+      <%= f.input :name, label: false, placeholder: 'Profesia' %>
+      <button class="btn btn-primary"><i class="fas fa-folder-plus"></i></button>
+    <% end %>
+  </div>
+  <div class="professions-index">
+    <h3>Profesii existente</h3>
+    <div class="professions-each">
+      <% @professions.each do |p| %>
+        <%= simple_form_for(p) do |f| %>
+          <%= f.input :name, label: false %>
+          <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+          <%= link_to profession_path(p), method: :delete, data: {confirm: "Vrei să ștergi profesia: #{p.name}?" }, class: 'btn btn-primary' do %>
+            <i class="fas fa-backspace"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

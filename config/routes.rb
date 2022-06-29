@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: { sessions: 'users/sessions'}
   resources :users, except: [:new]
   resources :carousel_cards
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   resources :featurettes
   resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   resources :members
+  resources :professions
+  resources :specialties
 
   get 'admin', to: 'admin#general'
   get 'team-members', to: 'admin#team_members'

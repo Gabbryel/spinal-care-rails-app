@@ -1,4 +1,4 @@
-class MemberPolicy < ApplicationPolicy
+class SpecialtyPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,7 +6,7 @@ class MemberPolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin || user.super_admin if user
+    user.admin && user.super_admin
   end
 
   def create?
@@ -21,12 +21,12 @@ class MemberPolicy < ApplicationPolicy
     new?
   end
 
-  def index?
-    true
+  def show?
+    new?
   end
 
-  def show?
-    true
+  def index?
+    new?
   end
 
   def destroy?
