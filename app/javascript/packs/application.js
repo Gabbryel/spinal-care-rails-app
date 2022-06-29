@@ -5,7 +5,7 @@
 
 import { vh, vhOnResize} from "../helpers/vh"
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
+// import Turbolinks from "turbolinks"
 import "@hotwired/turbo-rails"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
@@ -16,5 +16,5 @@ vh()
 vhOnResize()
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
