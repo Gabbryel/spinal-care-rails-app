@@ -1,0 +1,15 @@
+<div class="members-section px-5 py-5">
+  <div>
+  <h3>Secțiunea pentru adăugare/editare membri</h3>
+  <%= turbo_frame_tag @member do %>
+    <%= link_to 'Adaugă un membru',
+              new_member_path,
+              class: 'btn btn-primary mt-5',
+              data: { turbo_frame: dom_id(Member.new) } %>
+    <% end %>
+</div>
+<%= turbo_stream_from "members" %>
+  <%= turbo_frame_tag "members", class: 'member-index mt-5' do %>
+      <%= render @members, locals: { user: current_user } %>
+  <% end %>
+</div>

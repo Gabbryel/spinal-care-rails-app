@@ -9,15 +9,6 @@ t1 = Time.now()
 puts 'Hello there'
 puts 'Lets destroy everything first'
 Member.destroy_all
-puts 'Creating members...'
-10.times do
-  Member.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    role: Faker::Job.title,
-  )
-end
-
 
 puts '.....'
 

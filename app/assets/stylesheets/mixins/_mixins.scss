@@ -1,0 +1,11 @@
+@mixin custom-form {
+  display: grid;
+  position: relative;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 5fr 1fr;
+  gap: 10px;
+  border-radius: 7px;
+  padding: 10px 30px;
+  border: 1px solid $grey-spinal;
+}
