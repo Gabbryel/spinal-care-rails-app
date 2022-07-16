@@ -36,6 +36,11 @@ class ProfessionsController < ApplicationController
   end
 
   def destroy
+    if @profession.destroy
+      redirect_to team_members_path(anchor: ''), notice: 'Profesie ștearsă'
+    else
+      redirect_to team_members_path(anchor: ''), notice: 'Încearcă mai târziu'
+    end
   end
 
   private

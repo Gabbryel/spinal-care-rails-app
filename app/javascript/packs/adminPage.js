@@ -1,3 +1,3 @@
-import {openNewMemberModal} from '../helpers/openNewMemberModal';
+import { openNewMemberModal } from '../helpers/openNewMemberModal';
 
 openNewMemberModal()

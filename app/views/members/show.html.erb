@@ -1,2 +1,1 @@
-<h1>Members#show</h1>
-<p>Find me in app/views/members/show.html.erb</p>
+<%= link_to sanitize("&larr; Back to members"), current_user.present? ? team_members_path : members_path %>

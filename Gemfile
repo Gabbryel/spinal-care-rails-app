@@ -22,7 +22,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'acts-as-taggable-on'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -39,9 +38,12 @@ gem 'simple_form', github: 'heartcombo/simple_form'
 gem 'cloudinary', '~> 1.16.0'
 
 group :development, :test do  gem 'pry-byebug'
+  # binding.pry
   gem 'pry-rails'
   gem 'dotenv-rails'
   gem 'launchy'
+  gem "better_errors"
+  gem "binding_of_caller"
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

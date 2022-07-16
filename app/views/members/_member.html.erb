@@ -1,0 +1,21 @@
+<%= turbo_frame_tag member do %>
+  <div class="member-card" id="member-card-<%=member.id%>" style="background-image: url('<%= member.photo.key.present? ? cl_image_path(member.photo.key, :gravity=>"face") : image_path('doctor.png') %>')">
+    <span></span>
+    <div class="member_card__details">
+      <h3 class="pt-4"><%= "#{member.first_name} #{member.last_name}" %></h3>
+      <p><%= member.role %></p>
+      <p><%= member.specialty %></p>
+    </div>
+    <%= link_to 'Află mai multe', member_path(member), data: {turbo_frame: "_top"}, class: 'card-button' %>
+    <% if Current.user %>
+      <div class="member_card__crud">
+        <%= link_to edit_member_path(member) do %>
+          <i class="fas fa-edit member-edit-btn"></i>
+        <% end %>
+        <%= link_to member_path(member), method: :delete, data: { confirm: "Sigur vrei să ștergi #{member.first_name.concat(" #{member.last_name}")} ?" } do %>
+          <i class="fas fa-backspace"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
