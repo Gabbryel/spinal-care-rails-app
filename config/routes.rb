@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#general'
   get 'team-members', to: 'admin#team_members'
   get 'medical-appliances', to: 'admin#medical_appliances'
+  get 'blog-admin', to: 'admin#blog_admin'
 
   root to: 'pages#home'
   get 'despre-noi', to: 'pages#about'
