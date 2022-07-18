@@ -23,7 +23,10 @@ class MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
-      redirect_to team_members_path(anchor: "member-card-#{@member.id}"), notice: "Ai modificat contul #{@member.first_name} #{@member.last_name}"
+      respond_to do |format|
+        format.html { redirect_to team_members_path(anchor: "member-card-#{@member.id}"), notice: "Ai modificat #{@member.role}!" }
+        format.turbo_stream { flash.now[:notice] = "Ai modificat #{@member.role}!" }
+      end
     else
       render :edit, status: :unprocessable_entity, notice: "Ceva nu a mers. Reîncearcă, te rog!"
     end

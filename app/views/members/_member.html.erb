@@ -7,7 +7,7 @@
       <p><%= member.specialty %></p>
     </div>
     <%= link_to 'Află mai multe', member_path(member), data: {turbo_frame: "_top"}, class: 'card-button' %>
-    <% if Current.user %>
+    <% if Current.user && (Current.user.admin || Current.user.super_admin) %>
       <div class="member_card__crud">
         <%= link_to edit_member_path(member) do %>
           <i class="fas fa-edit member-edit-btn"></i>

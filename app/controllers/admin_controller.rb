@@ -21,4 +21,8 @@ class AdminController < ApplicationController
 
   def medical_appliances
   end
+
+  def blog_admin
+    
+  end
 end
